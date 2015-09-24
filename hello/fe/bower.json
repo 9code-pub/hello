@@ -1,0 +1,33 @@
+{
+  "name": "hello",
+  "version": "0.1.1",
+  "homepage": "http://blog.halo9pan.cn",
+  "authors": [
+    "Halo9Pan <halo9pan@gmail.com>"
+  ],
+  "description": "Hello Bower!",
+  "main": "main.js",
+  "moduleType": [
+    "amd",
+    "es6"
+  ],
+  "keywords": [
+    "bower",
+    "example"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "backbone": "~1.2.3",
+    "jquery-ui": "~1.11.4"
+  }
+}
