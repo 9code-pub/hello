@@ -1,15 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.iqiyi</groupId>
-	<artifactId>nc</artifactId>
+	<groupId>cn.halo9pan</groupId>
+	<artifactId>boke-hello</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>New Console</name>
+	<name>Hello</name>
+  <!--
 	<modules>
 		<module>core</module>
 		<module>web</module>
 	</modules>
+  -->
 	<properties>
 		<versions.slf4j>1.7.12</versions.slf4j>
 		<log4j.version>2.3</log4j.version>
@@ -59,6 +61,7 @@
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>**/*.sh</include>
+					<include>**/*.bat</include>
 					<include>**/*.properties</include>
 					<include>**/*.xml</include>
 				</includes>
