@@ -6,49 +6,19 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Hello</name>
-  <!--
 	<modules>
-		<module>core</module>
-		<module>web</module>
+		<module>spring</module>
+		<module>parent</module>
 	</modules>
-  -->
-	<properties>
-		<versions.slf4j>1.7.12</versions.slf4j>
-		<log4j.version>2.3</log4j.version>
-		<versions.junit>4.12</versions.junit>
-	</properties>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${versions.slf4j}</version>
-			</dependency>
-      <dependency>
-      	<groupId>org.apache.logging.log4j</groupId>
-      	<artifactId>log4j-core</artifactId>
-      	<version>${log4j.version}</version>
-      </dependency>
-      <dependency>
-      	<groupId>org.apache.logging.log4j</groupId>
-      	<artifactId>log4j-slf4j-impl</artifactId>
-      	<version>${log4j.version}</version>
-      </dependency>
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${versions.junit}</version>
-				<scope>test</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<defaultGoal>package</defaultGoal>
+		<!-- 
 		<filters>
 			<filter>${main.basedir}/src/filters/global.properties</filter>
 			<filter>${main.basedir}/src/filters/${deploy.env.name}.properties</filter>
 		</filters>
+		 -->
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
