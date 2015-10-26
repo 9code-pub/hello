@@ -7,8 +7,8 @@
 	<packaging>pom</packaging>
 	<name>Hello</name>
 	<modules>
-		<module>spring</module>
 		<module>parent</module>
+		<module>core</module>
 	</modules>
 
 	<build>
