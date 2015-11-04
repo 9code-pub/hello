@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.halo9pan.blog.hello.data.model.Guest" table="guest">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="nickName">
+			<column name="nick_name" />
+		</property>
+		<property name="visitTime">
+			<column name="visit_time" />
+		</property>
+		<many-to-one name="feature" column="feature"
+			class="cn.halo9pan.blog.hello.data.model.Feature" />
+		<list name="accesses" table="access" cascade="remove">
+			<key column="guest_id" not-null="true" />
+			<list-index column="count" base="1"/>
+			<one-to-many class="cn.halo9pan.blog.hello.data.model.Access" />
+		</list>
+		<set name="greetings" table="guest_greeting"
+            inverse="false" lazy="true" fetch="select" cascade="all">
+			<key column="guest_id" not-null="true" />
+			<many-to-many column="greeting_id" class="cn.halo9pan.blog.hello.data.model.Greeting" />
+		</set>
+	</class>
+
+	<class name="cn.halo9pan.blog.hello.data.model.Greeting" table="greeting">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="words">
+			<column name="words" />
+		</property>
+		<set name="guests" table="guest_greeting"
+            inverse="false" lazy="true" fetch="select" >
+			<key column="guest_id" not-null="true" />
+			<many-to-many column="greeting_id" class="cn.halo9pan.blog.hello.data.model.Greeting" />
+		</set>
+	</class>
+
+	<class name="cn.halo9pan.blog.hello.data.model.Feature" table="feature">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="gender" column="gender">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">cn.halo9pan.blog.hello.data.model.feature.Gender</param>
+			</type>
+		</property>
+	</class>
+</hibernate-mapping>

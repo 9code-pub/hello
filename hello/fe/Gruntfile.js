@@ -6,6 +6,20 @@ module.exports = function(grunt) {
       'dist'
     ],
     jshint: {},
+    copy: {
+      options: {
+        encoding: 'utf-8',
+        timestamp: true
+      },
+      dist: {
+        expand: true,
+        cwd: 'src/',
+        src: ['**',
+          '!.gitignore',
+          'LICENSE.txt'],
+        dest: 'dist/'
+      }
+    },
     concat: {
       options: {
         separator: ';',
@@ -17,7 +31,7 @@ module.exports = function(grunt) {
           'public/components/underscore/underscore.js',
           'public/components/backbone/backbone.js'
         ],
-        dest: 'dist/components.min.js'
+        dest: 'dist/js/components.js'
       },
       min: {
         src: [
@@ -25,7 +39,7 @@ module.exports = function(grunt) {
           'public/components/underscore/underscore-min.js',
           'public/components/backbone/backbone-min.js'
         ],
-        dest: 'dist/components.min.js'
+        dest: 'dist/js/components.min.js'
       }
     },
     uglify: {
@@ -35,7 +49,7 @@ module.exports = function(grunt) {
       },
       target: {
         expand: true,
-        cwd: 'boilerplate/js/',
+        cwd: 'src/js/',
         src: ['*.js', '!*.min.js'],
         dest: 'dist/js/',
         ext: '.min.js'
@@ -44,14 +58,14 @@ module.exports = function(grunt) {
     cssmin: {
       minify: {
         expand: true,
-        cwd: 'boilerplate/css/',
+        cwd: 'src/css/',
         src: ['*.css', '!*.min.css'],
         dest: 'dist/css/',
         ext: '.min.css'
       },
       combine: {
         files: {
-          'dist/css/public.min.css': [
+          'dist/css/components.min.css': [
             'public/components/bootstrap/dist/css/bootstrap.min.css',
             'public/components/bootstrap/dist/css/bootstrap-theme.min.css'
           ]
@@ -72,7 +86,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
 
   // 每行registerTask定义一个任务
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'copy']);
+  grunt.registerTask('release', ['concat', 'uglify']);
   grunt.registerTask('check', ['jshint']);
   grunt.registerTask('css', ['cssmin:minify','cssmin:combine']);
 

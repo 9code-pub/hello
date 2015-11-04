@@ -1,7 +1,7 @@
 {
   "name": "hello",
   "version": "0.1.1",
-  "description": "Hello Grunt",
+  "description": "Hello",
   "main": "index.js",
   "scripts": {
     "test": "grunt qunit"
