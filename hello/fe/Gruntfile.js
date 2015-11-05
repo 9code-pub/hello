@@ -16,7 +16,8 @@ module.exports = function(grunt) {
         cwd: 'src/',
         src: ['**',
           '!.gitignore',
-          'LICENSE.txt'],
+          '!LICENSE.txt',
+          '!doc/*'],
         dest: 'dist/'
       }
     },
@@ -25,7 +26,13 @@ module.exports = function(grunt) {
         separator: ';',
         sourceMap: true
       },
-      dist: {
+      source: {
+        src: [
+          'src/js/*.js'
+        ],
+        dest: 'dist/js/concat.js'
+      },
+      components: {
         src: [
           'public/components/jquery/dist/jquery.js',
           'public/components/underscore/underscore.js',
@@ -33,7 +40,7 @@ module.exports = function(grunt) {
         ],
         dest: 'dist/js/components.js'
       },
-      min: {
+      components_min: {
         src: [
           'public/components/jquery/dist/jquery.min.js',
           'public/components/underscore/underscore-min.js',
@@ -72,7 +79,13 @@ module.exports = function(grunt) {
         }
       }
     },
-    watch:  { /* watch的参数 */ }
+    watch: {
+      options: {
+        cwd: 'src/'
+      },
+      files: ['js/*.js', 'css/*.css', '*.html'],
+      tasks: ['copy', 'concat:source']
+    }
   });
 
   // 从node_modules目录加载模块文件
