@@ -11,7 +11,6 @@
         <link rel="apple-touch-icon" href="favicon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
@@ -19,8 +18,19 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div>Hello world! This is HTML5 Boilerplate</div>
+        <div>Hello!</div>
+        <div id="greetings"></div>
 
+        <script type="text/template" id="greetings-template">
+          <ul>
+            <% for (var i = 0; i<greetings.length; i++) { %>
+            <% var g = greetings[i]; %>
+            <li>
+              <b><%= g.word %></b>
+            </li>
+            <% } %>
+          </ul>
+        </script>
 <!--
         <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -29,8 +39,10 @@
         <script src="//apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/components.js"><\/script>')</script>
 -->
-        <script src="js/components.js"></script>
-        <script src="js/concat.js"></script>
+        <script>var hello = hello || {};</script>
+        <script src="js/external.js"></script>
+        <script src="js/main.js"></script>
+        <script src="demo.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

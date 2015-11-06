@@ -1,5 +1,4 @@
 // JavaScript Document
-hello = hello || {};
 hello.model = hello.model || {};
 var m = hello.model;
 
@@ -40,7 +39,17 @@ m.Access = Backbone.Model.extend({
   }
 });
 
-m.Accesses = Backbone.Collection.extend({model: Access});
+m.Greeting = Backbone.Model.extend({
+  initialize: function(word){
+    this.set('word', word);
+  },
+  defaults: {
+    word: ''
+  }
+});
+
+m.Accesses = Backbone.Collection.extend({model: m.Access});
+m.Greetings = Backbone.Collection.extend({model: m.Greeting});
 
 hello.model.feature = hello.model.feature || {};
 var mf = hello.model.feature;

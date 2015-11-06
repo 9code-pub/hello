@@ -17,7 +17,9 @@ module.exports = function(grunt) {
         src: ['**',
           '!.gitignore',
           '!LICENSE.txt',
-          '!doc/*'],
+          '!doc/*',
+          '!css/*',
+          '!js/*'],
         dest: 'dist/'
       }
     },
@@ -26,11 +28,17 @@ module.exports = function(grunt) {
         separator: ';',
         sourceMap: true
       },
-      source: {
+      js: {
         src: [
           'src/js/*.js'
         ],
-        dest: 'dist/js/concat.js'
+        dest: 'dist/js/main.js'
+      },
+      css: {
+        src: [
+          'src/css/*.css'
+        ],
+        dest: 'dist/css/main.css'
       },
       components: {
         src: [
@@ -38,7 +46,7 @@ module.exports = function(grunt) {
           'public/components/underscore/underscore.js',
           'public/components/backbone/backbone.js'
         ],
-        dest: 'dist/js/components.js'
+        dest: 'dist/js/external.js'
       },
       components_min: {
         src: [
@@ -46,7 +54,7 @@ module.exports = function(grunt) {
           'public/components/underscore/underscore-min.js',
           'public/components/backbone/backbone-min.js'
         ],
-        dest: 'dist/js/components.min.js'
+        dest: 'dist/js/external.min.js'
       }
     },
     uglify: {
@@ -72,7 +80,7 @@ module.exports = function(grunt) {
       },
       combine: {
         files: {
-          'dist/css/components.min.css': [
+          'dist/css/external.min.css': [
             'public/components/bootstrap/dist/css/bootstrap.min.css',
             'public/components/bootstrap/dist/css/bootstrap-theme.min.css'
           ]
@@ -83,8 +91,8 @@ module.exports = function(grunt) {
       options: {
         cwd: 'src/'
       },
-      files: ['js/*.js', 'css/*.css', '*.html'],
-      tasks: ['copy', 'concat:source']
+      files: ['js/*.js', 'css/*.css', '*.html', '*.js'],
+      tasks: ['copy', 'concat']
     }
   });
 

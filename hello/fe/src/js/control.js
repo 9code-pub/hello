@@ -1,5 +1,4 @@
 // JavaScript Document
-hello = hello || {};
 hello.control = hello.control || {};
 var c = hello.control;
 c.Gender = (function() {
