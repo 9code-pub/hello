@@ -30,8 +30,8 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 
 		<mapping resource="hibernate.hbm.xml" />
-		<!-- <mapping class="cn.halo9pan.blog.hello.data.model.*"/> -->
-		<mapping class="cn.halo9pan.blog.hello.data.model.Access"/>
+		<!-- <mapping class="cn.halo9pan.blog.hello.core.*"/> -->
+		<mapping class="cn.halo9pan.blog.hello.core.Access"/>
 
 	</session-factory>
 </hibernate-configuration>

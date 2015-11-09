@@ -1,7 +1,7 @@
-/**
+/*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 panhao
+ * Copyright (c) 2015 Halo9Pan
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,43 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.data.model;
+package cn.halo9pan.blog.hello.core;
 
-import cn.halo9pan.blog.hello.data.model.feature.Gender;
+import java.util.List;
 
 /**
  * @author panhao
  *
  */
-public class Feature {
+public class Vocabulary {
 
 	private int id;
 
-	private Gender gender;
+	private String words;
+	private List<Click> clicks;
 
 	public int getId() {
 		return id;
 	}
 
-	public Gender getGender() {
-		return gender;
+	public String getWords() {
+		return words;
+	}
+
+	public List<Click> getClicks() {
+		return clicks;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public void setGender(Gender gender) {
-		this.gender = gender;
+	public void setWords(String words) {
+		this.words = words;
 	}
+
+	public void setClicks(List<Click> clicks) {
+		this.clicks = clicks;
+	}
+
 }

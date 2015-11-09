@@ -1,7 +1,7 @@
-/**
+/*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 panhao
+ * Copyright (c) 2015 Halo9Pan
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,43 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.data.model;
-
-import java.util.Set;
+package cn.halo9pan.blog.hello.core.feature;
 
 /**
  * @author panhao
  *
  */
-public class Greeting {
-
-	private int id;
-
-	private String words;
-	private Set<Guest> guests;
-
-	public int getId() {
-		return id;
-	}
-
-	public String getWords() {
-		return words;
-	}
-
-	public Set<Guest> getGuests() {
-		return guests;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setWords(String words) {
-		this.words = words;
-	}
-
-	public void setGuests(Set<Guest> guests) {
-		this.guests = guests;
-	}
-
+public enum Gender {
+	MALE, FEMAIL
 }

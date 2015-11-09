@@ -33,7 +33,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.halo9pan.blog.hello.data.model.Guest;
+import cn.halo9pan.blog.hello.core.Guest;
 
 /**
  * @author panhao

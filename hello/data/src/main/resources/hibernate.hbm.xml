@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="cn.halo9pan.blog.hello.data.model.Guest" table="guest">
+	<class name="cn.halo9pan.blog.hello.core.Guest" table="guest">
 		<id name="id" type="int" column="id">
 			<generator class="native" />
 		</id>
@@ -14,41 +14,71 @@
 			<column name="visit_time" />
 		</property>
 		<many-to-one name="feature" column="feature"
-			class="cn.halo9pan.blog.hello.data.model.Feature" />
-		<list name="accesses" table="access" cascade="remove">
+			class="cn.halo9pan.blog.hello.core.Feature" />
+		<list name="clicks" table="click" cascade="remove">
 			<key column="guest_id" not-null="true" />
 			<list-index column="count" base="1"/>
-			<one-to-many class="cn.halo9pan.blog.hello.data.model.Access" />
+			<one-to-many class="cn.halo9pan.blog.hello.core.Click" />
 		</list>
+		<!-- 
 		<set name="greetings" table="guest_greeting"
             inverse="false" lazy="true" fetch="select" cascade="all">
 			<key column="guest_id" not-null="true" />
-			<many-to-many column="greeting_id" class="cn.halo9pan.blog.hello.data.model.Greeting" />
+			<many-to-many column="greeting_id" class="cn.halo9pan.blog.hello.core.Vocabulary" />
 		</set>
+		 -->
 	</class>
 
-	<class name="cn.halo9pan.blog.hello.data.model.Greeting" table="greeting">
+	<class name="cn.halo9pan.blog.hello.core.Click" table="click">
+		<id name="id" type="long" column="id">
+			<generator class="native" />
+		</id>
+		<property name="remote">
+			<column name="remote" />
+		</property>
+		<property name="time">
+			<column name="time" />
+		</property>
+		<property name="browser" column="browser">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">cn.halo9pan.blog.hello.core.feature.Browser</param>
+			</type>
+		</property>
+		<many-to-one name="guest" column="guest_id"
+			class="cn.halo9pan.blog.hello.core.Guest" />
+		<many-to-one name="vocabulary" column="vocabulary_id"
+			class="cn.halo9pan.blog.hello.core.Vocabulary" />
+	</class>
+
+	<class name="cn.halo9pan.blog.hello.core.Vocabulary" table="vocabulary">
 		<id name="id" type="int" column="id">
 			<generator class="native" />
 		</id>
 		<property name="words">
 			<column name="words" />
 		</property>
-		<set name="guests" table="guest_greeting"
-            inverse="false" lazy="true" fetch="select" >
-			<key column="guest_id" not-null="true" />
-			<many-to-many column="greeting_id" class="cn.halo9pan.blog.hello.data.model.Greeting" />
-		</set>
+		<list name="clicks" table="click" cascade="remove">
+			<key column="vocabulary_id" not-null="true" />
+			<list-index column="count" base="1"/>
+			<one-to-many class="cn.halo9pan.blog.hello.core.Click" />
+		</list>
 	</class>
 
-	<class name="cn.halo9pan.blog.hello.data.model.Feature" table="feature">
+<!-- 
+	<class name="cn.halo9pan.blog.hello.core.Feature" table="feature">
 		<id name="id" type="int" column="id">
 			<generator class="native" />
 		</id>
 		<property name="gender" column="gender">
 			<type name="org.hibernate.type.EnumType">
-				<param name="enumClass">cn.halo9pan.blog.hello.data.model.feature.Gender</param>
+				<param name="enumClass">cn.halo9pan.blog.hello.core.feature.Gender</param>
 			</type>
 		</property>
+		<set name="guests" table="guest_greeting"
+            inverse="false" lazy="true" fetch="select" >
+			<key column="guest_id" not-null="true" />
+			<many-to-many column="greeting_id" class="cn.halo9pan.blog.hello.core.Vocabulary" />
+		</set>
 	</class>
+ -->
 </hibernate-mapping>

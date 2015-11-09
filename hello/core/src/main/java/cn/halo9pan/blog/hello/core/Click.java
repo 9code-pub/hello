@@ -1,7 +1,7 @@
-/**
+/*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 panhao
+ * Copyright (c) 2015 Halo9Pan
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,45 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.data.model;
+package cn.halo9pan.blog.hello.core;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import cn.halo9pan.blog.hello.core.feature.Browser;
 
 /**
  * @author panhao
  *
  */
-@Entity
-@Table(name = "access")
-public class Access {
+public class Click {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private long id;
 	
-    @ManyToOne
-    @JoinColumn(name="guest_id", insertable=false, updatable=false, nullable=false)
 	private Guest guest;
-
-	@Column(name = "browser")
+	private Vocabulary vocabulary;
 	private Browser browser;
-
-	@Column(name = "remote")
 	private String remote;
-
-	@Column(name = "time")
 	private Date time;
 
 	public long getId() {
@@ -70,7 +49,10 @@ public class Access {
 		return guest;
 	}
 
-	@Enumerated(EnumType.ORDINAL)
+	public Vocabulary getVocabulary() {
+		return vocabulary;
+	}
+
 	public Browser getBrowser() {
 		return browser;
 	}
@@ -91,6 +73,10 @@ public class Access {
 		this.guest = guest;
 	}
 
+	public void setVocabulary(Vocabulary vocabulary) {
+		this.vocabulary = vocabulary;
+	}
+
 	public void setBrowser(Browser browser) {
 		this.browser = browser;
 	}
@@ -101,9 +87,5 @@ public class Access {
 
 	public void setTime(Date time) {
 		this.time = time;
-	}
-
-	public static enum Browser {
-		IE, Firefox, Chrome, Safari, Opera
 	}
 }

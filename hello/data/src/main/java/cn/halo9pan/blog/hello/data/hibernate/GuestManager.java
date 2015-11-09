@@ -32,13 +32,14 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.halo9pan.blog.hello.data.model.Guest;
+import cn.halo9pan.blog.hello.core.Guest;
+import cn.halo9pan.blog.hello.data.IGuestManager;
 
 /**
  * @author Halo9Pan
  *
  */
-public class GuestManager {
+public class GuestManager implements IGuestManager {
 	
 	private static final Logger logger = LoggerFactory.getLogger(GuestManager.class);
 
@@ -48,6 +49,10 @@ public class GuestManager {
 		this.sessionFactory = factory;
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.halo9pan.blog.hello.data.hibernate.IGuestManager#create()
+	 */
+	@Override
 	public Guest create() {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -67,6 +72,10 @@ public class GuestManager {
 		return guest;
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.halo9pan.blog.hello.data.hibernate.IGuestManager#delete(java.lang.Integer)
+	 */
+	@Override
 	public void delete(Integer id) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -84,6 +93,10 @@ public class GuestManager {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.halo9pan.blog.hello.data.hibernate.IGuestManager#retrieveAll()
+	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Guest> retrieveAll() {
 		Session session = sessionFactory.openSession();
@@ -91,7 +104,7 @@ public class GuestManager {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			guests = session.createQuery("FROM cn.halo9pan.blog.hello.data.model.Guest").list();
+			guests = session.createQuery("FROM cn.halo9pan.blog.hello.core.Guest").list();
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
@@ -103,6 +116,10 @@ public class GuestManager {
 		return guests;
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.halo9pan.blog.hello.data.hibernate.IGuestManager#retrieve(java.lang.Integer)
+	 */
+	@Override
 	public Guest retrieve(Integer id) {
 		Session session = sessionFactory.openSession();
 		Guest guest = null;
@@ -119,6 +136,10 @@ public class GuestManager {
 		return guest;
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.halo9pan.blog.hello.data.hibernate.IGuestManager#fetch(java.lang.Integer)
+	 */
+	@Override
 	public Guest fetch(Integer id) {
 		Session session = sessionFactory.openSession();
 		Guest guest = null;
@@ -135,7 +156,10 @@ public class GuestManager {
 		return guest;
 	}
 
-	/* Method to UPDATE salary for an employee */
+	/* (non-Javadoc)
+	 * @see cn.halo9pan.blog.hello.data.hibernate.IGuestManager#updateName(java.lang.Integer, java.lang.String)
+	 */
+	@Override
 	public void updateName(Integer id, String nickName) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;

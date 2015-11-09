@@ -1,7 +1,7 @@
-/**
+/*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 panhao
+ * Copyright (c) 2015 Halo9Pan
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,72 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.data.model;
+package cn.halo9pan.blog.hello.core;
 
-import java.util.List;
-import java.util.Set;
-
+import cn.halo9pan.blog.hello.core.feature.Gender;
 
 /**
  * @author panhao
  *
  */
-public class Guest {
+public class Feature {
 
 	private int id;
 
-	private String nickName;
-	private int visitTime;
-	private Feature feature;
-	private List<Access> accesses;
-	private Set<Greeting> greetings;
+	private Gender gender;
 
 	public int getId() {
 		return id;
 	}
 
-	public String getNickName() {
-		return nickName;
-	}
-
-	public int getVisitTime() {
-		return visitTime;
-	}
-
-	public Feature getFeature() {
-		return feature;
-	}
-
-	public List<Access> getAccesses() {
-		return accesses;
-	}
-
-	public void setGreetings(Set<Greeting> greetings) {
-		this.greetings = greetings;
+	public Gender getGender() {
+		return gender;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
-
-	public void setVisitTime(int visitTime) {
-		this.visitTime = visitTime;
-	}
-
-	public void setFeature(Feature feature) {
-		this.feature = feature;
-	}
-
-	public void setAccesses(List<Access> accesses) {
-		this.accesses = accesses;
-	}
-
-	public Set<Greeting> getGreetings() {
-		return greetings;
-	}
-
 }

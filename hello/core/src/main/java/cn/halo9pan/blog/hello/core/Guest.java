@@ -1,7 +1,7 @@
-/**
+/*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 panhao
+ * Copyright (c) 2015 Halo9Pan
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,12 +21,63 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.data.model.feature;
+package cn.halo9pan.blog.hello.core;
+
+import java.util.List;
+import java.util.Set;
+
 
 /**
  * @author panhao
  *
  */
-public enum Gender {
-	MALE, FEMAIL
+public class Guest {
+
+	private int id;
+
+	private String nickName;
+	private int visitTime;
+	private Feature feature;
+	private List<Click> clicks;
+
+	public int getId() {
+		return id;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public int getVisitTime() {
+		return visitTime;
+	}
+
+	public Feature getFeature() {
+		return feature;
+	}
+
+	public List<Click> getClicks() {
+		return clicks;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public void setVisitTime(int visitTime) {
+		this.visitTime = visitTime;
+	}
+
+	public void setFeature(Feature feature) {
+		this.feature = feature;
+	}
+
+	public void setClicks(List<Click> clicks) {
+		this.clicks = clicks;
+	}
+
 }
