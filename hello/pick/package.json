@@ -1,0 +1,40 @@
+{
+  "name": "pick",
+  "version": "1.0.0",
+  "description": "Collect data",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Halo9Pan/boke.git"
+  },
+  "keywords": [
+    "example",
+    "express",
+    "socket.io",
+    "mongodb"
+  ],
+  "author": "Halo9Pan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.0.48",
+    "socket.io": "^1.3.7",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "debug": "~2.2.0",
+    "grunt": "^0.4.5",
+    "grunt-karma": "^0.12.1",
+    "jasmine": "^2.3.2",
+    "karma": "^0.13.15",
+    "karma-jasmine": "^0.3.6"
+  }
+}
