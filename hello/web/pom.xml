@@ -4,13 +4,22 @@
 	<parent>
 		<groupId>cn.halo9pan.blog</groupId>
 		<artifactId>hello-parent</artifactId>
-		<version>0.1.12-SNAPSHOT</version>
+		<version>${project.version}</version>
 		<relativePath>../parent</relativePath>
 	</parent>
-	<artifactId>web</artifactId>
+	<artifactId>hello-web</artifactId>
 	<packaging>war</packaging>
 	<name>Web Module</name>
 	<dependencies>
+		<dependency>
+			<groupId>cn.halo9pan.blog</groupId>
+			<artifactId>hello-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.halo9pan.blog</groupId>
+			<artifactId>hello-api</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>

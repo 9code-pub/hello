@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>cn.halo9pan.blog</groupId>
 		<artifactId>boke-hello</artifactId>
-		<version>0.1.12-SNAPSHOT</version>
+		<version>${project.version}</version>
 	</parent>
 	<artifactId>hello-parent</artifactId>
 	<packaging>pom</packaging>
@@ -22,6 +22,26 @@
 	</properties>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>cn.halo9pan.blog</groupId>
+				<artifactId>hello-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.halo9pan.blog</groupId>
+				<artifactId>hello-data</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.halo9pan.blog</groupId>
+				<artifactId>hello-api</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.halo9pan.blog</groupId>
+				<artifactId>hello-web</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>

@@ -3,9 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.halo9pan.blog</groupId>
 	<artifactId>boke-hello</artifactId>
-	<version>0.1.12-SNAPSHOT</version>
+	<version>${project.version}</version>
 	<packaging>pom</packaging>
 	<name>Hello</name>
+	<properties>
+	<project.version>0.1.12-SNAPSHOT</project.version>
+	</properties>
 	<modules>
 		<module>parent</module>
 		<module>core</module>
@@ -92,4 +95,5 @@
 		</plugins>
 	</build>
 
+	
 </project>
