@@ -45,7 +45,7 @@ public class VocabularyService implements IVocabularyService {
 	@Override
 	public List<Vocabulary> getAllVocabularies() {
 		List<String> origin = Arrays.asList("One", "Two");
-		List<Object> list = origin.stream().map(word -> new Vocabulary().setWords(word)).collect(Collectors.toList());
+		List<Vocabulary> list = origin.stream().map(word -> new Vocabulary(word)).collect(Collectors.toList());
 		return null;
 	}
 

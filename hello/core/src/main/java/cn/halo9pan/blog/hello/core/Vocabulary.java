@@ -33,15 +33,23 @@ public class Vocabulary {
 
 	private int id;
 
-	private String words;
+	private String word;
 	private List<Click> clicks;
+
+	public Vocabulary() {
+		super();
+	}
+
+	public Vocabulary(String w) {
+		this.word = w;
+	}
 
 	public int getId() {
 		return id;
 	}
 
-	public String getWords() {
-		return words;
+	public String getWord() {
+		return word;
 	}
 
 	public List<Click> getClicks() {
@@ -52,8 +60,8 @@ public class Vocabulary {
 		this.id = id;
 	}
 
-	public void setWords(String words) {
-		this.words = words;
+	public void setWord(String word) {
+		this.word = word;
 	}
 
 	public void setClicks(List<Click> clicks) {
