@@ -2,7 +2,7 @@ package cn.halo9pan.blog.hello.data;
 
 import cn.halo9pan.blog.hello.core.Guest;
 
-public interface IGuestManager extends IGuestUpdater, IAllRetriever {
+public interface IGuestManager extends IGuestUpdater, IGuestRetriever {
 
 	Guest create();
 

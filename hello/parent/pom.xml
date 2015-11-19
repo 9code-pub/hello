@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>cn.halo9pan.blog</groupId>
 		<artifactId>boke-hello</artifactId>
-		<version>0.1.9-SNAPSHOT</version>
+		<version>0.1.12-SNAPSHOT</version>
 	</parent>
 	<artifactId>hello-parent</artifactId>
 	<packaging>pom</packaging>
@@ -12,11 +12,12 @@
 	<properties>
 		<version.slf4j>1.7.12</version.slf4j>
 		<version.log4j>2.4</version.log4j>
-		<version.spring>4.2.2.RELEASE</version.spring>
+		<version.spring>4.2.3.RELEASE</version.spring>
 		<version.hibernate>4.3.11.Final</version.hibernate>
 		<version.mybatis>3.3.0</version.mybatis>
 		<version.mysql>5.1.37</version.mysql>
-		<version.agent>1.18</version.agent>
+		<version.velocity>1.7</version.velocity>
+		<version.freemarker>2.3.23</version.freemarker>
 		<version.junit>4.12</version.junit>
 	</properties>
 	<dependencyManagement>
@@ -62,9 +63,24 @@
 				<version>${version.spring}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${version.spring}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
 				<version>${version.hibernate}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+				<version>${version.velocity}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+				<version>${version.freemarker}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.mybatis</groupId>
@@ -76,11 +92,6 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${version.mysql}</version>
 				<scope>runtime</scope>
-			</dependency>
-			<dependency>
-				<groupId>eu.bitwalker</groupId>
-				<artifactId>UserAgentUtils</artifactId>
-				<version>${version.agent}</version>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>

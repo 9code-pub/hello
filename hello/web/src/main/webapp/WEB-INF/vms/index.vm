@@ -1,0 +1,9 @@
+<h1>Index</h1>
+ 
+<h2>Department list</h2>
+<ul>
+#foreach($s in $list)
+  <li>$s</li>
+#end
+</ul>
+

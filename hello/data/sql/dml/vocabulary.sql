@@ -1,4 +1,4 @@
-INSERT INTO vocabulary (`word`) VALUES
+INSERT IGNORE INTO vocabulary (`word`) VALUES
 ('高兴'),
 ('好受'),
 ('开心'),

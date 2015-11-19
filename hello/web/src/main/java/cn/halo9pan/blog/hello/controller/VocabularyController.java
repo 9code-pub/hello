@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  * 
- * Copyright (c) 2015 halo9pan.cn
+ * Copyright (c) 2015 Halo9Pan
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,43 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.core;
+package cn.halo9pan.blog.hello.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import cn.halo9pan.blog.hello.core.Vocabulary;
+import cn.halo9pan.blog.hello.service.IVocabularyService;
 
 /**
  * @author panhao
  *
  */
-public class Vocabulary {
+@Controller
+@RequestMapping("/vocab")  
+public class VocabularyController {
+	
+	@Autowired
+	IVocabularyService vocabularyService;
 
-	private int id;
-
-	private String words;
-	private List<Click> clicks;
-
-	public int getId() {
-		return id;
-	}
-
-	public String getWords() {
-		return words;
-	}
-
-	public List<Click> getClicks() {
-		return clicks;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setWords(String words) {
-		this.words = words;
-	}
-
-	public void setClicks(List<Click> clicks) {
-		this.clicks = clicks;
-	}
-
-}
+	@RequestMapping(value="/list", method = RequestMethod.GET)
+    public String getAllVocabularies(Model model) {
+        List<Vocabulary> list = this.vocabularyService.getAllVocabularies();
+        model.addAttribute("list", list);
+        return "index";
+    }}

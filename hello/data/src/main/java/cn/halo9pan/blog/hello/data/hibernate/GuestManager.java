@@ -32,6 +32,7 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.halo9pan.blog.hello.core.Click;
 import cn.halo9pan.blog.hello.core.Guest;
 import cn.halo9pan.blog.hello.data.IGuestManager;
 
@@ -175,5 +176,11 @@ public class GuestManager implements IGuestManager {
 			logger.error("Can't update guest.", e);
 			session.close();
 		}
+	}
+
+	@Override
+	public void increaseClick(Integer id, Click click) {
+		// TODO Auto-generated method stub
+		
 	}
 }

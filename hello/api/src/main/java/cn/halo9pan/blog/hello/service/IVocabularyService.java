@@ -21,43 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.core;
+package cn.halo9pan.blog.hello.service;
 
 import java.util.List;
+
+import cn.halo9pan.blog.hello.core.Vocabulary;
 
 /**
  * @author panhao
  *
  */
-public class Vocabulary {
+public interface IVocabularyService {
 
-	private int id;
+	List<Vocabulary> getAllVocabularies();
 
-	private String words;
-	private List<Click> clicks;
+	boolean addVocabulary(Vocabulary v);
 
-	public int getId() {
-		return id;
-	}
-
-	public String getWords() {
-		return words;
-	}
-
-	public List<Click> getClicks() {
-		return clicks;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setWords(String words) {
-		this.words = words;
-	}
-
-	public void setClicks(List<Click> clicks) {
-		this.clicks = clicks;
-	}
+	boolean removeVocabulary(Vocabulary v);
 
 }

@@ -21,43 +21,56 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.core;
+package cn.halo9pan.blog.hello.service.mock;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import cn.halo9pan.blog.hello.core.Vocabulary;
+import cn.halo9pan.blog.hello.service.IVocabularyService;
 
 /**
  * @author panhao
  *
  */
-public class Vocabulary {
+public class VocabularyService implements IVocabularyService {
 
-	private int id;
-
-	private String words;
-	private List<Click> clicks;
-
-	public int getId() {
-		return id;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see cn.halo9pan.blog.hello.service.IVocabularyService#getAllVocabularies()
+	 */
+	@Override
+	public List<Vocabulary> getAllVocabularies() {
+		List<String> origin = Arrays.asList("One", "Two");
+		List<Object> list = origin.stream().map(word -> new Vocabulary().setWords(word)).collect(Collectors.toList());
+		return null;
 	}
 
-	public String getWords() {
-		return words;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.halo9pan.blog.hello.service.IVocabularyService#AddVocabulary(cn.halo9pan.blog.hello.core
+	 * .Vocabulary)
+	 */
+	@Override
+	public boolean addVocabulary(Vocabulary v) {
+		return false;
 	}
 
-	public List<Click> getClicks() {
-		return clicks;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setWords(String words) {
-		this.words = words;
-	}
-
-	public void setClicks(List<Click> clicks) {
-		this.clicks = clicks;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * cn.halo9pan.blog.hello.service.IVocabularyService#removeVocabulary(cn.halo9pan.blog.hello
+	 * .core.Vocabulary)
+	 */
+	@Override
+	public boolean removeVocabulary(Vocabulary v) {
+		return false;
 	}
 
 }

@@ -3,7 +3,8 @@
   <parent>
     <groupId>cn.halo9pan.blog</groupId>
     <artifactId>hello-parent</artifactId>
-    <version>0.1.9-SNAPSHOT</version>
+    <version>0.1.12-SNAPSHOT</version>
+    <relativePath>../parent</relativePath>
   </parent>
   <artifactId>data</artifactId>
   <name>Data Access</name>

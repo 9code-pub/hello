@@ -3,23 +3,22 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cn.halo9pan.blog</groupId>
 	<artifactId>boke-hello</artifactId>
-	<version>0.1.9-SNAPSHOT</version>
+	<version>0.1.12-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Hello</name>
 	<modules>
 		<module>parent</module>
 		<module>core</module>
 		<module>data</module>
+		<module>web</module>
+		<module>api</module>
 	</modules>
 
 	<build>
 		<defaultGoal>package</defaultGoal>
-		<!-- 
-		<filters>
-			<filter>${main.basedir}/src/filters/global.properties</filter>
-			<filter>${main.basedir}/src/filters/${deploy.env.name}.properties</filter>
-		</filters>
-		 -->
+		<!-- <filters> <filter>${main.basedir}/src/filters/global.properties</filter> 
+			<filter>${main.basedir}/src/filters/${deploy.env.name}.properties</filter> 
+			</filters> -->
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -80,6 +79,15 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>31880</port>
+					<path>/</path>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

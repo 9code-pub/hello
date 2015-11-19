@@ -4,7 +4,7 @@ import java.util.List;
 
 import cn.halo9pan.blog.hello.core.Guest;
 
-public interface IAllRetriever {
+public interface IGuestRetriever {
 
 	public abstract List<Guest> retrieveAll();
 
