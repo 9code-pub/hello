@@ -31,9 +31,8 @@ import java.util.List;
  */
 public class Vocabulary {
 
-	private int id;
-
 	private String word;
+	private String description;
 	private List<Click> clicks;
 
 	public Vocabulary() {
@@ -44,28 +43,53 @@ public class Vocabulary {
 		this.word = w;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	public String getWord() {
 		return word;
+	}
+
+	public String getDescription() {
+		return description;
 	}
 
 	public List<Click> getClicks() {
 		return clicks;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public void setWord(String word) {
 		this.word = word;
 	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public void setClicks(List<Click> clicks) {
 		this.clicks = clicks;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((word == null) ? 0 : word.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vocabulary other = (Vocabulary) obj;
+		if (word == null) {
+			if (other.word != null)
+				return false;
+		} else if (!word.equals(other.word))
+			return false;
+		return true;
 	}
 
 }

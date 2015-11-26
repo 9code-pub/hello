@@ -23,7 +23,6 @@
  */
 package cn.halo9pan.blog.hello.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +49,5 @@ public class VocabularyController {
     public String getAllVocabularies(Model model) {
         List<Vocabulary> list = this.vocabularyService.getAllVocabularies();
         model.addAttribute("list", list);
-        return "index";
+        return "vocabularies";
     }}

@@ -33,10 +33,33 @@ import cn.halo9pan.blog.hello.core.Vocabulary;
  */
 public interface IVocabularyService {
 
+	/**
+	 * @return
+	 */
 	List<Vocabulary> getAllVocabularies();
 
+	/**
+	 * @param word
+	 * @return
+	 */
+	Vocabulary getVocabulary(String word);
+
+	/**
+	 * @param character
+	 * @return
+	 */
+	List<Vocabulary> searchVocabularies(String character);
+
+	/**
+	 * @param v
+	 * @return
+	 */
 	boolean addVocabulary(Vocabulary v);
 
+	/**
+	 * @param v
+	 * @return
+	 */
 	boolean removeVocabulary(Vocabulary v);
 
 }

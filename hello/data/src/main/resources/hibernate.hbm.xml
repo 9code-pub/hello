@@ -15,11 +15,13 @@
 		</property>
 		<many-to-one name="feature" column="feature"
 			class="cn.halo9pan.blog.hello.core.Feature" />
+		<!-- 
 		<list name="clicks" table="click" cascade="remove">
 			<key column="guest_id" not-null="true" />
 			<list-index column="count" base="1"/>
 			<one-to-many class="cn.halo9pan.blog.hello.core.Click" />
 		</list>
+		 -->
 		<!-- 
 		<set name="greetings" table="guest_greeting"
             inverse="false" lazy="true" fetch="select" cascade="all">
@@ -29,6 +31,7 @@
 		 -->
 	</class>
 
+	<!-- 
 	<class name="cn.halo9pan.blog.hello.core.Click" table="click">
 		<id name="id" type="long" column="id">
 			<generator class="native" />
@@ -49,22 +52,22 @@
 		<many-to-one name="vocabulary" column="vocabulary_id"
 			class="cn.halo9pan.blog.hello.core.Vocabulary" />
 	</class>
+	 -->
 
 	<class name="cn.halo9pan.blog.hello.core.Vocabulary" table="vocabulary">
-		<id name="id" type="int" column="id">
-			<generator class="native" />
-		</id>
-		<property name="words">
-			<column name="words" />
+		<id name="word" type="string" column="word" />
+		<property name="description">
+			<column name="description" />
 		</property>
+		<!-- 
 		<list name="clicks" table="click" cascade="remove">
 			<key column="vocabulary_id" not-null="true" />
 			<list-index column="count" base="1"/>
 			<one-to-many class="cn.halo9pan.blog.hello.core.Click" />
 		</list>
+		 -->
 	</class>
 
-<!-- 
 	<class name="cn.halo9pan.blog.hello.core.Feature" table="feature">
 		<id name="id" type="int" column="id">
 			<generator class="native" />
@@ -74,11 +77,12 @@
 				<param name="enumClass">cn.halo9pan.blog.hello.core.feature.Gender</param>
 			</type>
 		</property>
+		<!-- 
 		<set name="guests" table="guest_greeting"
             inverse="false" lazy="true" fetch="select" >
 			<key column="guest_id" not-null="true" />
 			<many-to-many column="greeting_id" class="cn.halo9pan.blog.hello.core.Vocabulary" />
 		</set>
+		 -->
 	</class>
- -->
 </hibernate-mapping>

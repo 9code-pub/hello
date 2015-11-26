@@ -6,6 +6,6 @@ import cn.halo9pan.blog.hello.core.Guest;
 
 public interface IGuestRetriever {
 
-	public abstract List<Guest> retrieveAll();
+	List<Guest> retrieveAll();
 
 }

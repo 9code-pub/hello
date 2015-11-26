@@ -21,72 +21,67 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.service.impl;
+package cn.halo9pan.blog.hello.data.hibernate;
+
+import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.halo9pan.blog.hello.core.Vocabulary;
 import cn.halo9pan.blog.hello.data.IVocabularyManager;
-import cn.halo9pan.blog.hello.service.IVocabularyService;
 
 /**
  * @author panhao
  *
  */
-@Service
-public class VocabularyService implements IVocabularyService {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:spring-data-hibernate.xml")
+public class VocabularyManagerTest {
 	
 	@Autowired
-	private IVocabularyManager repository;
+	IVocabularyManager manager;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see cn.halo9pan.blog.hello.service.IVocabularyService#getAllVocabularies()
+	/**
+	 * @throws java.lang.Exception
 	 */
-	@Override
-	public List<Vocabulary> getAllVocabularies() {
-		return this.repository.retrieveAll();
+	@Before
+	public void setUp() throws Exception {
 	}
 
-	@Override
-	public Vocabulary getVocabulary(String word) {
-		return this.repository.retrieve(word);
-	}
-
-	@Override
-	public List<Vocabulary> searchVocabularies(String character) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * cn.halo9pan.blog.hello.service.IVocabularyService#AddVocabulary(cn.halo9pan.blog.hello.core
-	 * .Vocabulary)
+	/**
+	 * Test method for {@link cn.halo9pan.blog.hello.data.hibernate.VocabularyManager#retrieveAll()}
+	 * .
 	 */
-	@Override
-	public boolean addVocabulary(Vocabulary v) {
-		// TODO Auto-generated method stub
-		return false;
+	@Test
+	public void testRetrieveAll() {
+		List<Vocabulary> list = manager.retrieveAll();
+		assertNotNull(list);
+		assertNotEquals(0, list.size());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * cn.halo9pan.blog.hello.service.IVocabularyService#removeVocabulary(cn.halo9pan.blog.hello
-	 * .core.Vocabulary)
+	/**
+	 * Test method for
+	 * {@link cn.halo9pan.blog.hello.data.hibernate.VocabularyManager#retrieve(java.lang.Long)}.
 	 */
-	@Override
-	public boolean removeVocabulary(Vocabulary v) {
-		// TODO Auto-generated method stub
-		return false;
+	@Test
+	public void testRetrieveLong() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for
+	 * {@link cn.halo9pan.blog.hello.data.hibernate.VocabularyManager#retrieve(java.lang.String)}.
+	 */
+	@Test
+	public void testRetrieveString() {
+		fail("Not yet implemented");
 	}
 
 }

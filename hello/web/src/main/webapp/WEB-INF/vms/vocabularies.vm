@@ -1,0 +1,7 @@
+<h2>Vocabulary list</h2>
+<ul>
+#foreach($s in $list)
+  <li>$s.word</li>
+#end
+</ul>
+

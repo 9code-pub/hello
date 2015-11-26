@@ -21,56 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package cn.halo9pan.blog.hello.service.mock;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import cn.halo9pan.blog.hello.core.Vocabulary;
-import cn.halo9pan.blog.hello.service.IVocabularyService;
+package cn.halo9pan.blog.hello.data;
 
 /**
  * @author panhao
  *
  */
-public class VocabularyService implements IVocabularyService {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see cn.halo9pan.blog.hello.service.IVocabularyService#getAllVocabularies()
-	 */
-	@Override
-	public List<Vocabulary> getAllVocabularies() {
-		List<String> origin = Arrays.asList("One", "Two");
-		List<Vocabulary> list = origin.stream().map(word -> new Vocabulary(word)).collect(Collectors.toList());
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * cn.halo9pan.blog.hello.service.IVocabularyService#AddVocabulary(cn.halo9pan.blog.hello.core
-	 * .Vocabulary)
-	 */
-	@Override
-	public boolean addVocabulary(Vocabulary v) {
-		return false;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * cn.halo9pan.blog.hello.service.IVocabularyService#removeVocabulary(cn.halo9pan.blog.hello
-	 * .core.Vocabulary)
-	 */
-	@Override
-	public boolean removeVocabulary(Vocabulary v) {
-		return false;
-	}
+public interface IVocabularyManager extends IVocabularyRetriever {
 
 }
