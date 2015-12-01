@@ -31,12 +31,11 @@ import cn.halo9pan.blog.hello.core.feature.Browser;
  * @author panhao
  *
  */
-public class Click {
+public class Access {
 
 	private long id;
 	
 	private Guest guest;
-	private Vocabulary vocabulary;
 	private Browser browser;
 	private String remote;
 	private Date time;
@@ -47,10 +46,6 @@ public class Click {
 	
     public Guest getGuest(){
 		return guest;
-	}
-
-	public Vocabulary getVocabulary() {
-		return vocabulary;
 	}
 
 	public Browser getBrowser() {
@@ -71,10 +66,6 @@ public class Click {
 
 	public void setGuest(Guest guest) {
 		this.guest = guest;
-	}
-
-	public void setVocabulary(Vocabulary vocabulary) {
-		this.vocabulary = vocabulary;
 	}
 
 	public void setBrowser(Browser browser) {

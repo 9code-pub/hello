@@ -33,7 +33,7 @@ public class Vocabulary {
 
 	private String word;
 	private String description;
-	private List<Click> clicks;
+	private List<Access> access;
 
 	public Vocabulary() {
 		super();
@@ -51,8 +51,8 @@ public class Vocabulary {
 		return description;
 	}
 
-	public List<Click> getClicks() {
-		return clicks;
+	public List<Access> getClicks() {
+		return access;
 	}
 
 	public void setWord(String word) {
@@ -63,8 +63,8 @@ public class Vocabulary {
 		this.description = description;
 	}
 
-	public void setClicks(List<Click> clicks) {
-		this.clicks = clicks;
+	public void setClicks(List<Access> access) {
+		this.access = access;
 	}
 
 	@Override

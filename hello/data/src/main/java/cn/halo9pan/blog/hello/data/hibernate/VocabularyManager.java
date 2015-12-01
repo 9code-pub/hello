@@ -53,7 +53,7 @@ public class VocabularyManager implements IVocabularyManager {
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<Vocabulary> retrieveAll() {
-		Session session = this.usingSession();
+		Session session = this.sessionFactory.openSession();
 		List<Vocabulary> vocabularies = null;
 		Transaction tx = null;
 		try {
@@ -64,13 +64,15 @@ public class VocabularyManager implements IVocabularyManager {
 			if (tx != null)
 				tx.rollback();
 			logger.error("Can't retrieve vocabularies.", e);
+		} finally {
+			session.close();
 		}
 		return vocabularies;
 	}
 
 	@Override
 	public Vocabulary retrieve(String word) {
-		Session session = this.usingSession();
+		Session session = this.sessionFactory.openSession();
 		Vocabulary vocabulary = null;
 		Transaction tx = null;
 		try {
@@ -82,6 +84,8 @@ public class VocabularyManager implements IVocabularyManager {
 			if (tx != null)
 				tx.rollback();
 			logger.warn("Can't retrieve vocabulary with word [" + word + "].", e);
+		} finally {
+			session.close();
 		}
 		return vocabulary;
 	}
@@ -89,7 +93,7 @@ public class VocabularyManager implements IVocabularyManager {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Vocabulary> query(String character) {
-		Session session = this.usingSession();
+		Session session = this.sessionFactory.openSession();
 		List<Vocabulary> vocabularies = null;
 		Transaction tx = null;
 		try {
@@ -101,17 +105,10 @@ public class VocabularyManager implements IVocabularyManager {
 			if (tx != null)
 				tx.rollback();
 			logger.warn("Can't retrieve vocabulary like word [" + character + "].", e);
+		} finally {
+			session.close();
 		}
 		return vocabularies;
 	}
 
-	private Session usingSession(){
-		if(this.usedSession == null){
-			this.usedSession = this.sessionFactory.getCurrentSession();
-			if(this.usedSession == null){
-				this.usedSession = this.sessionFactory.openSession();
-			}
-		}
-		return this.usedSession;
-	}
 }

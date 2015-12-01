@@ -24,7 +24,6 @@
 package cn.halo9pan.blog.hello.core;
 
 import java.util.List;
-import java.util.Set;
 
 
 /**
@@ -38,7 +37,7 @@ public class Guest {
 	private String nickName;
 	private int visitTime;
 	private Feature feature;
-	private List<Click> clicks;
+	private List<Access> access;
 
 	public int getId() {
 		return id;
@@ -56,8 +55,8 @@ public class Guest {
 		return feature;
 	}
 
-	public List<Click> getClicks() {
-		return clicks;
+	public List<Access> getAccess() {
+		return access;
 	}
 
 	public void setId(int id) {
@@ -76,8 +75,8 @@ public class Guest {
 		this.feature = feature;
 	}
 
-	public void setClicks(List<Click> clicks) {
-		this.clicks = clicks;
+	public void setAccess(List<Access> access) {
+		this.access = access;
 	}
 
 }

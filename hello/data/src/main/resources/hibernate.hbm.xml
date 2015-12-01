@@ -15,13 +15,11 @@
 		</property>
 		<many-to-one name="feature" column="feature"
 			class="cn.halo9pan.blog.hello.core.Feature" />
-		<!-- 
-		<list name="clicks" table="click" cascade="remove">
+		<list name="access" table="access" cascade="remove">
 			<key column="guest_id" not-null="true" />
 			<list-index column="count" base="1"/>
-			<one-to-many class="cn.halo9pan.blog.hello.core.Click" />
+			<one-to-many class="cn.halo9pan.blog.hello.core.Access" />
 		</list>
-		 -->
 		<!-- 
 		<set name="greetings" table="guest_greeting"
             inverse="false" lazy="true" fetch="select" cascade="all">
@@ -32,7 +30,7 @@
 	</class>
 
 	<!-- 
-	<class name="cn.halo9pan.blog.hello.core.Click" table="click">
+	<class name="cn.halo9pan.blog.hello.core.Access" table="click">
 		<id name="id" type="long" column="id">
 			<generator class="native" />
 		</id>
@@ -63,7 +61,7 @@
 		<list name="clicks" table="click" cascade="remove">
 			<key column="vocabulary_id" not-null="true" />
 			<list-index column="count" base="1"/>
-			<one-to-many class="cn.halo9pan.blog.hello.core.Click" />
+			<one-to-many class="cn.halo9pan.blog.hello.core.Access" />
 		</list>
 		 -->
 	</class>
