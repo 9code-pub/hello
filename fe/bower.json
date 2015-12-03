@@ -26,9 +26,13 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "bootstrap": "~3.3.5",
+    "bootstrap": "~3.3.6",
     "backbone": "~1.2.3",
     "jquery-ui": "~1.11.4",
     "modernizr": "~3.2.0"
+  },
+  "devDependencies": {
+    "qunit": "~1.20.0",
+    "jasmine-core": "jasmine#~2.4.0"
   }
 }
