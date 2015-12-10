@@ -41,7 +41,7 @@ var webdriver = require('selenium-webdriver'),
 
 var chrome = require('selenium-webdriver/chrome');
 var chromeOptions = new chrome.Options();
-chromeOptions.setChromeBinaryPath('%__BASE%/Chrome/.gray/chrome.exe')
+chromeOptions.setChromeBinaryPath('F:/Sol/Chrome/.gray/chrome.exe')
 
 var driver = new webdriver.Builder()
     .forBrowser('chrome')
