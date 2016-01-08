@@ -21,11 +21,17 @@ module.exports = function(grunt) {
           '!css/*',
           '!js/*'],
         dest: 'dist/'
+      },
+      components_bootstrap: {
+        expand: true,
+        cwd: 'bower_components/bootstrap/dist/',
+        src: ['fonts/*'],
+        dest: 'dist/'
       }
     },
     concat: {
       options: {
-        separator: ';',
+        separator: ';\n',
         sourceMap: true
       },
       js: {
@@ -42,17 +48,19 @@ module.exports = function(grunt) {
       },
       components: {
         src: [
-          'public/components/jquery/dist/jquery.js',
-          'public/components/underscore/underscore.js',
-          'public/components/backbone/backbone.js'
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/bootstrap/dist/js/bootstrap.js',
+          'bower_components/underscore/underscore.js',
+          'bower_components/backbone/backbone.js'
         ],
         dest: 'dist/js/external.js'
       },
       components_min: {
         src: [
-          'public/components/jquery/dist/jquery.min.js',
-          'public/components/underscore/underscore-min.js',
-          'public/components/backbone/backbone-min.js'
+          'bower_components/jquery/dist/jquery.min.js',
+          'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          'bower_components/underscore/underscore-min.js',
+          'bower_components/backbone/backbone-min.js'
         ],
         dest: 'dist/js/external.min.js'
       }
@@ -78,11 +86,19 @@ module.exports = function(grunt) {
         dest: 'dist/css/',
         ext: '.min.css'
       },
-      combine: {
+      components: {
+        files: {
+          'dist/css/external.css': [
+            'bower_components/bootstrap/dist/css/bootstrap.css',
+            'bower_components/bootstrap/dist/css/bootstrap-theme.css'
+          ]
+        }
+      },
+      components_min: {
         files: {
           'dist/css/external.min.css': [
-            'public/components/bootstrap/dist/css/bootstrap.min.css',
-            'public/components/bootstrap/dist/css/bootstrap-theme.min.css'
+            'bower_components/bootstrap/dist/css/bootstrap.min.css',
+            'bower_components/bootstrap/dist/css/bootstrap-theme.min.css'
           ]
         }
       }
@@ -110,6 +126,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['concat', 'copy']);
   grunt.registerTask('release', ['concat', 'uglify']);
   grunt.registerTask('check', ['jshint']);
-  grunt.registerTask('css', ['cssmin:minify','cssmin:combine']);
+  grunt.registerTask('style', ['cssmin']);
 
 };

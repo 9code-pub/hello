@@ -1,6 +1,6 @@
 {
   "name": "hello",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "Hello",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Halo9Pan/boke.git"
+    "url": "git+https://github.com/Halo9Pan/hello.git"
   },
   "keywords": [
     "grunt",
@@ -17,9 +17,9 @@
   "author": "Halo9Pan <halo9pan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Halo9Pan/boke/issues"
+    "url": "https://github.com/Halo9Pan/hello/issues"
   },
-  "homepage": "https://github.com/Halo9Pan/boke#readme",
+  "homepage": "https://github.com/Halo9Pan/hello#readme",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.7.0",
